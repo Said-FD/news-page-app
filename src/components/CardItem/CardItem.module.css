@@ -1,0 +1,147 @@
+.topCard .cardLink {
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+}
+
+.topCard .categoryName {
+  margin-top: 1rem;
+}
+
+.topCard .title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.875rem;
+  -webkit-line-clamp: 3;
+}
+
+.topCard .description {
+  margin-top: .5rem;
+  font-size: .9375rem;
+  color: var(--secondaryTextColor, #565656);
+  -webkit-line-clamp: 2;
+}
+
+.topCard .details {
+  font-size: .75rem;
+}
+
+.cardsListItem {
+  border-top: var(--divider);
+}
+
+.cardLink {
+  display: flex;
+}
+
+.cardLink:hover,
+.cardLink:focus,
+.cardLink:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (min-width: 593px) {
+  .cardLink {
+    align-items: center;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 592px) {
+  .cardLink {
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.cardLink:hover .image,
+.cardLink:focus .image {
+  transform: scale(1.1);
+}
+
+.imageWrapper {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--mainBgColor, #fff);
+  background-color: var(--placeholderBgColor, #7c7c7c);
+}
+
+@media (min-width: 593px) {
+  .topCard .imageWrapper {
+    width: 100%;
+    height: 311px;
+  }
+
+  .imageWrapper {
+    width: 260px;
+    height: 146px;
+  }
+
+  .cardsListItem:nth-child(odd) .imageWrapper {
+    order: 1;
+    margin-left: 40px;
+  }
+  
+  .cardsListItem:nth-child(even) .imageWrapper {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 592px) {
+  .imageWrapper {
+    width: 100%;
+    height: 183px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .25s ease-in-out;
+}
+
+.categoryName {
+  text-transform: uppercase;
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  color: var(--accentColor, #f02f23);
+}
+
+@media (max-width: 592px) {
+  .categoryName {
+    margin-top: .75rem;
+  }
+}
+
+.title {
+  margin-top: .5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.details {
+  opacity: .78;
+  margin-top: .5rem;
+  font-size: .6875rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  color: var(--secondaryTextColor, #565656);
+}
+
+.detailsName {
+  overflow-wrap: anywhere;
+}
+
+.detailsSeparator {
+  margin-right: .25rem;
+  margin-left: .25rem;
+}

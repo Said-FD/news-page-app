@@ -1,0 +1,50 @@
+body {
+  position: relative;
+  min-width: 360px;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: Poppins, -apple-system, 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.375;
+  color: var(--mainTextColor, #2a2a2a);
+  background-color: var(--mainBgColor, #fff);
+}
+
+a,
+button {
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  transition:
+    color .15s,
+    background-color .15s,
+    border-color .15s;
+}
+
+button {
+  cursor: pointer;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+.main-container {
+  width: 100%;
+  /* 592px as app max-width is 560px and sum of the side paddings are 32px */
+  max-width: 592px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.is-active-link {
+  text-decoration: underline;
+  color: var(--accentColor, #f02f23);
+}

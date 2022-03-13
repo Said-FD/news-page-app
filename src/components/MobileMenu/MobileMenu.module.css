@@ -1,0 +1,90 @@
+@media (min-width: 981px) {
+  .mobileMenuContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .mobileMenuContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    visibility: visible;
+  }
+
+  .mobileMenuContainer.isHidden {
+    animation: hideMobileMenu 0s .25s forwards;
+  }
+
+  @keyframes hideMobileMenu {
+    99% {
+      z-index: 1;
+      visibility: visible;
+    }
+    100% {
+      z-index: -1;
+      visibility: hidden;
+    }
+  }
+
+  .mobileMenuContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    display: block;
+    background-color: var(--overlayBgColor, rgba(0,0,0,.5));
+    transition: opacity .25s ease-out;
+  }
+
+  .mobileMenuContainer.isActive::before {
+    opacity: 1;
+    transition: opacity .15s ease-in;
+  }
+
+  .mobileMenu,
+  .buttonClose,
+  .actionsList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobileMenu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50vw;
+    background-color: var(--mainBgColor);
+    transform: translateX(-100%);
+    transition: transform .25s ease-out;
+  }
+
+  .isActive .mobileMenu {
+    transform: translateX(0);
+    transition: transform .25s ease-in;
+  }
+
+  .buttonClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+  }
+
+  .actionsList {
+    flex-direction: column;
+  }
+
+  .actionsListItem {
+    margin-top: 20px;
+  }
+}

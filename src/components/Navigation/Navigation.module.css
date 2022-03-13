@@ -1,0 +1,44 @@
+.navigation {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  max-width: 560px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: var(--mainBgColor);
+  border-bottom: var(--divider);
+}
+
+/* 592px as app max-width is 560px and sum of the side paddings are 32px */
+@media (max-width: 592px) {
+  .navigation {
+    overflow: auto;
+    width: 100vw;
+  }
+}
+
+.navigationList {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+@media (max-width: 592px) {
+  .navigationList {
+    padding-left: 16px;
+  }
+
+  /* Right edge gap for overflowed list */
+  .navigationList::after {
+    content: '';
+    pointer-events: none;
+    opacity: 0;
+    min-width: 16px;
+    height: 1px;
+  }
+}
+
+.navigationListItem + .navigationListItem {
+  margin-left: 16px;
+}

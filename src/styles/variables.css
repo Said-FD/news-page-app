@@ -1,0 +1,14 @@
+:root {
+  --mainTextColor: #2a2a2a;
+  --secondaryTextColor: #565656;
+  --detailsTextColor: #7c7c7c;
+  --mainBgColor: #fff;
+  --accentColor: #f02f23;
+  --accentReverseColor: #fff;
+  --buttonBorderRadius: 14px;
+  --buttonLargeBorderRadius: 18px;
+  --placeholderBgColor: #7c7c7c;
+  --dividerBgColor: #e7e7e7;
+  --divider: 1px solid var(--dividerBgColor, #e7e7e7);
+  --overlayBgColor: rgba(0,0,0,.5);
+}

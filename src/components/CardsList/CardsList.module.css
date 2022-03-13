@@ -1,0 +1,18 @@
+.cardSection {
+  padding-top: 1rem;
+}
+
+.cardSectionTitle {
+  text-transform: uppercase;
+  font-size: .6875rem;
+  font-weight: 700;
+  line-height: 1.125rem;
+  letter-spacing: .3em;
+}
+
+.listFooter {
+  display: flex;
+  justify-content: center;
+  padding: 20px 40px 60px;
+  border-top: var(--divider);
+}
