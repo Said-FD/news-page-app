@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import UserActions from '../UserActions/UserActions';
 import styles from './MobileMenu.module.css';
 
 const MobileMenu = ({ menuOpen, onCloseMenu }) => {
+  useEffect(() => {
+    const bodyElement = document.querySelector('body');
+    const mobileMenuContainerElement = document.querySelector('.mobile-menu-container');
+
+    const handleOverlayClick = event => {
+      if (!event.target.closest('.mobile-menu')) {
+        onCloseMenu(!menuOpen);
+      }
+    }
+
+    if (menuOpen) {
+      bodyElement.style.overflow = 'hidden';
+      mobileMenuContainerElement.addEventListener('click', handleOverlayClick);
+    } else {
+      bodyElement.style.overflow = 'visible';
+      mobileMenuContainerElement.removeEventListener('click', handleOverlayClick);
+    }
+  }, [menuOpen]);
+
   const isActiveClass = menuOpen ? styles.isActive : styles.isHidden;
 
   return ReactDOM.createPortal(
-    <div className={`${styles.mobileMenuContainer} ${isActiveClass}`}>
-      <div className={styles.mobileMenu}>
+    <div className={`mobile-menu-container ${styles.mobileMenuContainer} ${isActiveClass}`}>
+      <div className={`mobile-menu ${styles.mobileMenu}`}>
         <button
           type="button"
           className={`button-text ${styles.buttonClose}`}
@@ -18,24 +38,8 @@ const MobileMenu = ({ menuOpen, onCloseMenu }) => {
             <use href="#icon-close" />
           </svg>
         </button>
-
-        {/* This list could be a dedicated component, which will be used here and inside the Header component. But I just had copied it from the Header for test purposes */}
         <ul className={styles.actionsList}>
-          <li className={styles.actionsListItem}>
-            <button type="button" className="button-text">
-              Newsletter
-            </button>
-          </li>
-          <li className={styles.actionsListItem}>
-            <button type="button" className="button-text">
-              Sign In
-            </button>
-          </li>
-          <li className={styles.actionsListItem}>
-            <button type="button" className="button-accent button-medium">
-              Subscribe
-            </button>
-          </li>
+          <UserActions />
         </ul>
       </div>
     </div>,

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
+import useWindowWidth from '../../services/hooks-service';
 import MobileMenu from '../MobileMenu/MobileMenu';
+import UserActions from '../UserActions/UserActions';
 
 const Header = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const { windowWidth } = useWindowWidth();
+  const breakpoint = 980;
 
   return (
     <>
@@ -29,32 +33,16 @@ const Header = () => {
             <use href="#icon-logo" />
           </svg>
         </Link>
-        <div className={styles.actions}>
-          <ul className={styles.actionsList}>
-            <li className={styles.actionsListItem}>
-              <button type="button" className="button-text">
-                Newsletter
-              </button>
-            </li>
-            <li className={styles.actionsListItem}>
-              <button type="button" className="button-text">
-                Sign In
-              </button>
-            </li>
-            <li className={styles.actionsListItem}>
-              <button type="button" className="button-accent button-medium">
-                Subscribe
-              </button>
-            </li>
-            <li className={`${styles.actionsListItem} ${styles.actionsListItemSearch}`}>
-              <button type="button" className={`button-text ${styles.buttonSearch}`} aria-label="search">
-                <svg width="18" height="19" aria-hidden="true">
-                  <use href="#icon-search" />
-                </svg>
-              </button>
-            </li>
-          </ul>
-        </div>
+        <ul className={styles.actionsList}>
+          {windowWidth > breakpoint && <UserActions />}
+          <li className={styles.actionsListItemSearch}>
+            <button type="button" className={`button-text ${styles.buttonSearch}`} aria-label="search">
+              <svg width="18" height="19" aria-hidden="true">
+                <use href="#icon-search" />
+              </svg>
+            </button>
+          </li>
+        </ul>
       </header>
     </>
   );
