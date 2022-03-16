@@ -16,7 +16,7 @@ const CardsList = () => {
   const navigate = useNavigate();
 
   const country = 'us';
-  const pageSize = 11;
+  const pageSize = 10;
 
   useEffect(() => {
     if (category !== currentCategory) {
@@ -49,7 +49,7 @@ const CardsList = () => {
     getArticles();
   }, [currentCategory, pageNumber]);
 
-  // Not implemented, but if no articles in the response I would show proper message
+  // Not implemented, but if no articles in the response I would show an appropriate message
 
   return (
     <>

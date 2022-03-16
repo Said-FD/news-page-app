@@ -5,7 +5,7 @@ export const apiService = async (
   country = 'us',
   category,
   page = 1,
-  pageSize = 11
+  pageSize = 10
 ) => {
   const url = new URL('https://newsapi.org/v2/top-headlines');
 
@@ -15,8 +15,6 @@ export const apiService = async (
     pageSize,
     apiKey: '621b38767e3d4e1faee5c8891dbbb406'
   };
-  // a3ca4bb82ae843c9ae17dd61bd271718
-  // 621b38767e3d4e1faee5c8891dbbb406
 
   if (category) {
     params.category = category;
